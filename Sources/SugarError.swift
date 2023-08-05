@@ -7,11 +7,11 @@ import Foundation
 /// An error thrown when a value can't be casted to a generic type.
 public enum SugarError: LocalizedError {
     /// An error thrown when a value can't be unwrapped to a generic type.
-    case failedToUnwrap(value: Any?, expectedType: Any.Type, function: String = #function, line: Int = #line)
+    case failedToUnwrap(value: Any?, expectedType: Any.Type, function: StaticString = #function, line: UInt = #line)
     /// An error thrown when a value can't be casted to a generic type.
-    case unableCast(value: Any, expectedType: Any.Type, function: String = #function, line: Int = #line)
+    case unableCast(value: Any, expectedType: Any.Type, function: StaticString = #function, line: UInt = #line)
     /// An custom error thrown when a value can't pass a guard statement.
-    case custom(String, function: String = #function, line: Int = #line)
+    case custom(String, function: StaticString = #function, line: UInt = #line)
 
     public var errorDescription: String? {
         switch self {
@@ -37,7 +37,6 @@ public enum SugarError: LocalizedError {
                 """
         }
     }
-
 }
 
 extension SugarError: Equatable {

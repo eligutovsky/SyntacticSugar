@@ -31,5 +31,4 @@ final class UnwrapTests: XCTestCase {
 
         XCTAssertNoThrow(try unwrap(uut))
     }
-
 }

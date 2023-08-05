@@ -1,4 +1,4 @@
-struct Fixture {
+enum Fixture {
     static let string = "string"
     static let int = 1
     static let double = 1.0
