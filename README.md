@@ -4,7 +4,7 @@
 
 # Syntactic Sugar for Swift (SSS)
 
-![example workflow](https://github.com/eligutovsky/SyntacticSugar/actions/workflows/swift.yml/badge.svg)
+![example workflow](https://github.com/eligutovsky/SyntacticSugar/actions/workflows/test.yml/badge.svg)
 
 > In computer science, syntactic sugar is syntax within a programming language that is designed to make things easier to read or to express. It makes the language "sweeter" for human use: things can be expressed more clearly, more concisely, or in an alternative style that some may prefer. [Wikipedia](https://en.wikipedia.org/wiki/Syntactic_sugar)
 
