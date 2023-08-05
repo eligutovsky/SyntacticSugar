@@ -12,9 +12,11 @@ let package = Package(
     targets: [
         .target(
             name: "SyntacticSugar",
-            dependencies: []),
+            dependencies: [],
+            path: "Sources"),
         .testTarget(
             name: "SyntacticSugarTests",
-            dependencies: ["SyntacticSugar"])
+            dependencies: ["SyntacticSugar"],
+            path: "Tests")
     ]
 )
