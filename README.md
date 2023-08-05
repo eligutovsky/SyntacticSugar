@@ -71,7 +71,7 @@ The `unwrap()` method is a convenient way to unwrap an optional value. It return
 let optionalString: String? = "Hello, world!"
 
 // Unwrap the optional value
-let string = try optionalString.unwrap()
+let string = try unwrap(optionalString)
 
 print(string) // Prints "Hello, world!"
 ```
