@@ -58,12 +58,14 @@ After importing the module, you can start leveraging the provided syntactic suga
 SSS comes with a variety of features to improve the readability and simplicity of your Swift code. Some of the key features include:
 
 - [Optional Unwrapping](#optional-unwrapping)
+- [Optional Casting](#optional-casting)
+- [SugarError](#sugarerror)
 
 ### Optional Unwrapping
 
 SSS provides a variety of convenient methods for unwrapping optionals. These methods are designed to reduce the amount of boilerplate code required to unwrap optionals, while also improving the readability of your code.
 
-#### `unwrap()` and `unwrap(_:)`
+#### `unwrap()`
 
 The `unwrap()` method is a convenient way to unwrap an optional value. It returns the unwrapped value if it is not `nil`, or throws an error if the value is `nil`. This method is useful when you want to throw an error if an optional value is `nil`, but you don't want to use `guard` or `if let` statements.
 
@@ -76,15 +78,68 @@ let string = try unwrap(optionalString)
 print(string) // Prints "Hello, world!"
 ```
 
-The `unwrap(_:)` method is similar to `unwrap()`, but it allows you to specify a custom error message. This method is useful when you want to throw an error if an optional value is `nil`, but you want to use a custom error message instead of the default one.
+### Optional Casting
+
+SSS provides a variety of convenient methods for casting optionals to different types. These methods are designed to reduce the amount of boilerplate code required to cast optionals, while also improving the readability of your code.
+
+#### `cast()`
+
+The `cast()` method is a convenient way to cast an optional value to a different type. It returns the casted value if the cast is successful, or throws an error if the cast fails. This method is useful when you want to throw an error if an optional value cannot be casted to a different type, but you don't want to use `guard` or `if let` statements.
 
 ```swift
 let optionalString: String? = "Hello, world!"
 
-// Unwrap the optional value
-let string = try unwrap(optionalString)
+// Cast the optional value to a different type
+let string: String = try cast(optionalString)
 
 print(string) // Prints "Hello, world!"
+```
+
+### `SugarError`
+
+The `SugarError` enum is a convenient way to represent errors that occur when unwrapping optionals or casting values. It contains a variety of cases that represent different types of errors, including:
+
+- `failedToUnwrap`: The optional value was `nil`.
+- `unableCast`: The optional value could not be casted to the specified type.
+- `custom`: A custom error message.
+
+```swift
+let optionalString: String? = nil
+
+do {
+    // Unwrap the optional value
+    let string = try unwrap(optionalString)
+} catch SugarError.failedToUnwrap {
+    print("The optional value was nil.")
+} catch {
+    print("An unknown error occurred.")
+}
+```
+
+```swift
+let optionalString: String? = "Hello, world!"
+
+do {
+    // Cast the optional value to a different type
+    let string: Int = try cast(optionalString)
+} catch SugarError.unableCast {
+    print("The optional value could not be casted to the specified type.")
+} catch {
+    print("An unknown error occurred.")
+}
+```
+
+```swift
+let optionalString: String? = nil
+
+do {
+    // Unwrap the optional value
+    let string = try unwrap(optionalString)
+} catch SugarError.custom(let message) {
+    print(message)
+} catch {
+    print("An unknown error occurred.")
+}
 ```
 
 ## Contributing
