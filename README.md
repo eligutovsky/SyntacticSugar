@@ -36,11 +36,11 @@ Alternatively, you can also add SSS as a dependency in your `Package.swift` file
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/eligutovsky/SyntacticSugar.git", from: "0.0.0")
+    .package(url: "https://github.com/eligutovsky/SyntacticSugar.git", from: "1.0.0")
 ]
 ```
 
-Replace `0.0.0` with the desired version or range.
+Replace `1.0.0` with the desired version or range.
 
 
 ## Usage
